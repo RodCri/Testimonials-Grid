@@ -1,0 +1,122 @@
+:root{
+    --moderate-violet: hsl(263, 55%, 52%);
+    --very-dark-grayish-blue: hsl(217, 19%, 35%);
+    --very-dark-blackish-blue: hsl(219, 29%, 14%);
+    --c-white: hsl(0, 0%, 100%);
+    --light-gray: hsl(0, 0%, 81%);
+    --light-grayish-blue: hsl(210, 46%, 95%);
+}
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    font-family: 'Barlow Semi Condensed', sans-serif;
+    font-size: 16px;
+    background-color: var(--light-grayish-blue);
+}
+.container{
+    width: 1200px;
+    margin: 2% auto;
+}
+.grid{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: max-content max-content;
+    gap: 20px 20px;
+    align-self: center;
+    grid-template-areas:
+      "first__card first__card  second__card fifth__card"
+      "third__card fourth__card fourth__card fifth__card";
+}
+.first__card{
+    grid-area: first__card;
+    background-color: var(--moderate-violet);
+    background-image: url("../images/bg-pattern-quotation.svg");
+    background-repeat: no-repeat;
+    background-position: 80% 0px;
+    object-fit: contain;
+}
+.second__card{
+    grid-area: second__card;
+    background-color: var(--very-dark-grayish-blue);
+}
+.third__card{
+    grid-area: third__card;
+    background-color: var(--c-white);
+}
+.fourth__card{
+    grid-area: fourth__card;
+    background-color: var(--very-dark-blackish-blue);
+}
+.fifth__card{
+    grid-area: fifth__card;
+    background-color: var(--c-white);
+}
+.card{
+    border-radius: 10px;
+    padding: 2em;
+    color: var(--c-white);
+}
+.card-black{
+    color:var(--very-dark-grayish-blue);
+}
+.header__card{
+    display: flex;
+    margin-bottom: 1em;
+    font-size: 13px;
+}
+.verified{
+    opacity: 50%;
+}
+.avatar{
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    border: 1px solid #fff;
+    margin-right: 1em;
+}
+.info__card-title{
+    margin-bottom: 1em;
+}
+.title{
+    font-size: 20px;
+    font-weight: 600;
+}
+.post{
+    font-size: 13px;
+    opacity: 50%;
+    line-height: 1.5em;
+}
+@media (max-width:920px) and (min-width:768px){
+    .container{
+        max-width: 80%;
+    }
+    .grid{
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: repeat(3, max-content);
+        grid-template-areas:
+        "first__card first__card  second__card"
+        "third__card fourth__card fourth__card"
+        "fifth__card fifth__card  fifth__card";
+    }   
+    .card{
+        padding: 1.5em;
+    }
+}
+@media (max-width:480px) and (min-width:320px){
+    .container{
+        max-width: 80%;
+    }
+    .grid{
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(5, max-content);
+        grid-template-areas:
+        "first__card"
+        "second__card"
+        "third__card"
+        "fourth__card"
+        "fifth__card";
+    }   
+}
